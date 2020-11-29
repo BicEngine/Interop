@@ -1,0 +1,38 @@
+{
+    "name": "bic-engine/interop",
+    "description": "Interoperability enables you to preserve and take advantage of existing investments in unmanaged code.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["ffi", "parser", "compiler", "loader", "helpers", "utility", "loader"],
+    "require": {
+        "php": ">=7.4",
+        "ext-ffi": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bic\\Interop\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.1",
+        "vimeo/psalm": "^4.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bic\\Interop\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
