@@ -108,6 +108,10 @@ if (! function_exists('int8')) {
      */
     function int8($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::int8Array($value, $owned);
+        }
+
         return Type::int8($value, $owned);
     }
 }
@@ -120,6 +124,10 @@ if (! function_exists('uint8')) {
      */
     function uint8($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::uint8Array($value, $owned);
+        }
+
         return Type::uint8($value, $owned);
     }
 }
@@ -132,6 +140,10 @@ if (! function_exists('int16')) {
      */
     function int16($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::int16Array($value, $owned);
+        }
+
         return Type::int16($value, $owned);
     }
 }
@@ -144,6 +156,10 @@ if (! function_exists('uint16')) {
      */
     function uint16($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::uint16Array($value, $owned);
+        }
+
         return Type::uint16($value, $owned);
     }
 }
@@ -156,6 +172,10 @@ if (! function_exists('int32')) {
      */
     function int32($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::int32Array($value, $owned);
+        }
+
         return Type::int32($value, $owned);
     }
 }
@@ -168,6 +188,10 @@ if (! function_exists('uint32')) {
      */
     function uint32($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::uint32Array($value, $owned);
+        }
+
         return Type::uint32($value, $owned);
     }
 }
@@ -180,6 +204,10 @@ if (! function_exists('int64')) {
      */
     function int64($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::int64Array($value, $owned);
+        }
+
         return Type::int64($value, $owned);
     }
 }
@@ -192,6 +220,10 @@ if (! function_exists('uint64')) {
      */
     function uint64($value = 0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::uint64Array($value, $owned);
+        }
+
         return Type::uint64($value, $owned);
     }
 }
@@ -204,6 +236,10 @@ if (! function_exists('float')) {
      */
     function float($value = 0.0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::floatArray($value, $owned);
+        }
+
         return Type::float($value, $owned);
     }
 }
@@ -216,6 +252,10 @@ if (! function_exists('double')) {
      */
     function double($value = 0.0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::doubleArray($value, $owned);
+        }
+
         return Type::double($value, $owned);
     }
 }
@@ -228,20 +268,43 @@ if (! function_exists('ldouble')) {
      */
     function ldouble($value = 0.0, bool $owned = false): CData
     {
+        if (\is_iterable($value)) {
+            return Type::longDoubleArray($value, $owned);
+        }
+
         return Type::longDouble($value, $owned);
     }
 }
 
 if (! function_exists('string')) {
     /**
-     * @param string|string[]|int $stringOrLength
-     * @param bool $wideChar
+     * @param string|string[] $string
      * @param bool $owned
      * @return CData|string|string[]
      */
-    function string($stringOrLength, bool $wideChar = true, bool $owned = false): CData
+    function string($string, bool $owned = false): CData
     {
-        return Type::string($stringOrLength, $wideChar, $owned);
+        if (\is_iterable($string)) {
+            return Type::stringArray($string, $owned);
+        }
+
+        return Type::string($string, $owned);
+    }
+}
+
+if (! function_exists('wide_string')) {
+    /**
+     * @param string|string[] $string
+     * @param bool $owned
+     * @return CData|string|string[]
+     */
+    function wide_string($string, bool $owned = false): CData
+    {
+        if (\is_iterable($string)) {
+            return Type::wideStringArray($string, $owned);
+        }
+
+        return Type::wideString($string, $owned);
     }
 }
 
